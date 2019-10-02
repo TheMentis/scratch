@@ -1,0 +1,37 @@
+str1 = "Person"
+str2 = "PERsona"
+
+
+def findCommonChars(s1, s2):
+    """
+    algo 1
+    """
+    answers = []
+    for x in s1:
+        for y in s2:
+            if x == y:
+                x = x.lower()
+                if not (x in answers):
+                    answers.append(x)
+    return answers
+
+
+def findCommonChars_superduper(s1, s2):
+    """
+    algo 2 using dictionary
+    """
+    answers = []
+    dict = {}
+    for x in s1:
+        dict[x] = 1
+    for y in s2:
+        # dict[y] == dict.get(y, 0)
+        if dict.get(y, 0) == 1:
+            y = y.lower()
+            if not y in answers:
+                answers.append(y)
+    return answers
+
+# print(findCommonChars(str1, str2))
+print(findCommonChars_superduper(str1, str2))
+
